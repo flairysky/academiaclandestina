@@ -72,7 +72,9 @@ body {
 .menu a:hover {
   color: #f0c674;
 }
-
+.menu li:last-child {
+    margin-bottom: 40px; /* add breathing room above the footer */
+  }
 .content {
   flex-grow: 1;
   display: flex;
