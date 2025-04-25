@@ -244,3 +244,8 @@ p {
     align: center;
   }
 }
+@media (min-width: 769px) {
+    .menu {
+      margin-bottom: 60px; /* more room on desktop */
+    }
+  }
