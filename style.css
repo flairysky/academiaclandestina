@@ -105,9 +105,6 @@ body {
   display: flex;
   flex-direction: column;
   padding: 40px;
-  min-height: 0; /* allows flex child (news-feed) to scroll */
-  overflow: hidden;
-  height: 100vh; /* Ensure this takes full vertical space */
   box-sizing: border-box;
 }
 
