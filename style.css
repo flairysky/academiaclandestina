@@ -1,3 +1,4 @@
+/* === BASE === */
 body {
   margin: 0;
   background-color: #000;
@@ -5,27 +6,45 @@ body {
   font-family: 'Share Tech Mono', monospace;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh; /* Allow full page growth */
 }
 
 .container {
   display: flex;
-  flex: 1;
+  flex: 1 0 auto; /* Let container grow with content */
   overflow: hidden;
 }
 
+/* === SIDEBAR === */
 .sidebar {
   width: 250px;
-  background-color: #111;
-  padding: 20px;
+  background-color: transparent;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  padding: 0;
   flex-shrink: 0;
-  justify-content: space-between; /* <-- NEW: splits menu and bottom */
 }
-.nav-top {
-  margin-bottom: 40px; /* Adjust this value to create more space above footer */
+
+.nav-box-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  width: 100%;
+  flex-grow: 1;
+}
+
+.nav-box {
+  background-color: #111;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .logo {
@@ -45,7 +64,6 @@ body {
 .search-bar {
   width: 90%;
   padding: 6px 8px;
-  margin-bottom: 20px;
   border: none;
   border-radius: 4px;
   font-family: 'Share Tech Mono', monospace;
@@ -59,7 +77,6 @@ body {
   list-style: none;
   padding: 0;
   width: 100%;
-  margin-bottom: 40px;
 }
 
 .menu li {
@@ -69,24 +86,31 @@ body {
 .menu a {
   color: white;
   text-decoration: none;
-  font-size: 16px; /* <-- adjust this to change nav size */
+  font-size: 16px;
   transition: color 0.2s ease-in-out;
   padding-left: 8px;
 }
 
 .menu a:hover {
-  color: #f0c674;
+  color: #FFD700;
 }
+
 .menu li:last-child {
-    margin-bottom: 40px; /* add breathing room above the footer */
-  }
+  margin-bottom: 20px;
+}
+
+/* === MAIN CONTENT === */
 .content {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   padding: 40px;
+  min-height: 0; /* allows flex child (news-feed) to scroll */
   overflow: hidden;
+  height: 100vh; /* Ensure this takes full vertical space */
+  box-sizing: border-box;
 }
+
 
 h1 {
   font-size: 36px;
@@ -102,6 +126,7 @@ p {
   margin-bottom: 20px;
 }
 
+/* === NEWS FEED === */
 .news-feed {
   flex-grow: 1;
   overflow-y: auto;
@@ -109,6 +134,7 @@ p {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  padding-top: 20px;
 }
 
 .news-card {
@@ -123,7 +149,7 @@ p {
 }
 
 .news-card:hover {
-  border-color: #f0c674;
+  border-color: #FFD700;
   background-color: #1a1a1a;
 }
 
@@ -143,20 +169,19 @@ p {
   margin: 0;
 }
 
+/* === FOOTER === */
 .footer {
-    background-color: #111;
-    color: #aaa;
-    text-align: center;
-    padding: 4px 8px;               /* smaller padding */
-    font-size: 10px;                /* compact font */
-    font-family: 'Share Tech Mono', monospace;
-    border-top: 1px solid #222;
-    flex-shrink: 0;
-  }
-  
- 
+  background-color: #111;
+  color: #aaa;
+  text-align: center;
+  padding: 4px 8px;
+  font-size: 10px;
+  font-family: 'Share Tech Mono', monospace;
+  border-top: 1px solid #222;
+  margin-top: auto; /* Push to bottom */
+}
 
-
+/* === RESPONSIVE === */
 @media (max-width: 768px) {
   body {
     height: auto;
@@ -170,6 +195,10 @@ p {
     width: 100%;
     align-items: center;
     padding: 16px 10px;
+  }
+
+  .nav-box-wrapper {
+    padding: 20px 0;
   }
 
   .logo {
@@ -193,7 +222,7 @@ p {
     border-radius: 6px;
     background-color: #222;
     color: white;
-    border: 1px solid #f0c674;
+    border: 1px solid #FFD700;
     align-self: center;
   }
 
@@ -235,21 +264,21 @@ p {
     background-color: #111;
     color: #aaa;
     text-align: center;
-    padding: 4px 8px;               /* smaller padding */
-    font-size: 10px;                /* compact font */
+    padding: 4px 8px;
+    font-size: 10px;
     font-family: 'Share Tech Mono', monospace;
     border-top: 1px solid #222;
-    flex-shrink: 0;
+    margin-top: auto;
   }
-  
+
   .footer p {
-    margin: 2px 0;                  /* eliminate large gaps */
+    margin: 2px 0;
     line-height: 1.2;
-    align: center;
   }
 }
+
 @media (min-width: 769px) {
-    .menu {
-      margin-bottom: 60px; /* more room on desktop */
-    }
+  .menu {
+    margin-bottom: 60px;
   }
+}
