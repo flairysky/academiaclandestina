@@ -29,13 +29,44 @@
         <li><a href="About.html" class="active">About</a></li>
       </ul>
     </nav>
+
     <main class="content">
-      <h1>Reamrks to Ponder</h1>
-      <p>-</p>
+      <h1>Remarks to Ponder</h1>
+
+      <div class="toggle-section">
+        <button class="toggle-button" onclick="toggleList('peopleList')">
+          <h2>Learning for an exam vs. Learning to understand</h2>
+        </button>
+        <div id="peopleList" class="toggle-list" style="display: none;">
+          <p>In an ideal world, there would be no distinction between understanding a subject and preparing for an exam. Unfortunately, we do not live in such a world—and in 99.99% of university classes, students must adjust their approach depending on the goal in mind.</p>
+          <p>When preparing for an exam, one must focus specifically on the types of questions that might appear, based on the style of the particular professor. These can differ greatly from one professor to another. Of course, if you truly understand the material, you should be able to tackle any question. But exams are often designed to leave no time for reflection—especially if you're aiming for a top grade. This forces students to memorize answers and procedures rather than develop genuine understanding, regardless of the subject.</p>
+          <p>In contrast, if your goal is to understand the topic deeply, you should primarily learn from books. Lectures often provide only fragments of knowledge and rarely offer the comprehensive perspective needed for true understanding. (Though, for passing an exam, lectures usually suffice.)</p>
+          <p>Maybe some professors will read this and consider how they might design a class where students could both understand the subject and prepare effectively for the exam—at the same time.</p>
+          <p><strong>+/- Message for students:</strong> Lectures feed you bits. Books teach you the whole picture. Want to pass? Go to class. Want to understand? Read.</p>
+        </div>
+
+        <button class="toggle-button" onclick="toggleList('projectsList')">
+          <h2>Attendance of Lectures and Seminars</h2>
+        </button>
+        <div id="projectsList" class="toggle-list" style="display: none;">
+          <p>For some reason, attending a lecture or a seminar is connected with an unconscious (fake) realization that even if one does not understand what is discussed, one should stay to feel better—or, in the case of (research) seminars, to not offend the presenter by leaving.</p>
+          <p>(Of course, if you attend them to meet (new or contemporary) friends, fair enough!)</p>
+          <p>Why should you stay in a seminar when you do not understand anything? In companies such as Tesla, it is very well known that if you do not have anything to contribute in a meeting, you should just leave and do something useful. We never understood why it is just a common thing in academic institutions to waste your time...</p>
+          <p><strong>+/- Message for students:</strong> Don't understand the seminar? Leave. It's not rude—it's your time (of course unless there is also your supervisor... then probably rather not...).</p>
+        </div>
+      </div>
     </main>
   </div>
+
+  <footer class="footer">
+    <p>© 2025 Academia Clandestina - Designed to ace university</p>
+  </footer>
+
+  <script>
+    function toggleList(id) {
+      const el = document.getElementById(id);
+      el.style.display = (el.style.display === "none" || el.style.display === "") ? "block" : "none";
+    }
+  </script>
 </body>
-<footer class="footer">
-  <p>© 2025 Academia Clandestina - Designed to ace university</p>
-</footer>
 </html>
