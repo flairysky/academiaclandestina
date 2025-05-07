@@ -7,7 +7,6 @@
   <link rel="icon" type="image/png" href="assets/actransparent.png">
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
-
 </head>
 <body>
   <div class="container">
@@ -21,7 +20,7 @@
           </div>
 
           <input type="text" class="search-bar" placeholder="Search...">
-          
+
           <ul class="menu">
             <li><a href="ExamHacks.html">Exam Hacks</a></li>
             <li><a href="StudyHacks.html">Study Hacks</a></li>
@@ -34,42 +33,34 @@
         </div>
       </div>
     </nav>
-
     <main class="content">
-      <h1>Welcome to <br> Academia Clandestina</h1>
-      <p>Browse through the news feed.</p>
-
-      <div class="news-feed">
-        <a href="About.html" class="news-card">
-          <div class="date">May 1, 2025</div>
-          <h2>Updated About Page</h2>
-          <p>Created about us description.</p>
-        </a>
-
-        <a href="Remarks.html" class="news-card">
-          <div class="date">1 May, 2025</div>
-          <h2>Learning to understand or to pass an exam</h2>
-          <p>Pondering about learning.</p>
-        </a>
-
-        <a href="Remarks.html" class="news-card">
-          <div class="date">1 May, 2025</div>
-          <h2>Attending lectures or seminars?</h2>
-          <p>Pondering about Attendance and academic culture.</p>
-        </a>
-
-        <a href="index.html" class="news-card">
-          <div class="date">25 April, 2025</div>
-          <h2>Academia Clandestina was born</h2>
-          <p>Webpage creattion.</p>
-        </a>
-
-      </div>
+        <script>
+            window.onload = function() {
+              const urlParams = new URLSearchParams(window.location.search);
+              const results = urlParams.get('results')?.split(',') || [];
+              const resultsContainer = document.getElementById('results');
+        
+              if (results.length > 0 && results[0] !== "") {
+                results.forEach(page => {
+                  const link = document.createElement('a');
+                  link.href = page;
+                  link.textContent = `Go to ${page}`;
+                  resultsContainer.appendChild(link);
+                  resultsContainer.appendChild(document.createElement('br'));
+                });
+              } else {
+                resultsContainer.textContent = "No results found.";
+              }
+            }
+          </script>
+        </head>
+        <body>
+          <h1>Search Results</h1>
+          <div id="results"></div>
     </main>
   </div>
-
-  <footer class="footer">
-    <p>© 2025 Academia Clandestina - Designed to ace university</p>
-  </footer>
 </body>
+<footer class="footer">
+  <p>© 2025 Academia Clandestina - Designed to ace university</p>
+</footer>
 </html>
