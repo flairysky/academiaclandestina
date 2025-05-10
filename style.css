@@ -9,6 +9,46 @@ body {
   min-height: 100vh; /* Allow full page growth */
 }
 
+/* === CUSTOM BULLET POINT IMAGE ONLY FOR TEXT CONTENT === */
+.content ul, 
+.content ol {
+  list-style-type: none; /* Remove default bullet points */
+  padding-left: 20px; /* Adjust for alignment */
+}
+
+.content ul li::before, 
+.content ol li::before {
+  content: '';
+  display: inline-block;
+  width: 24px; /* Adjust to your image size */
+  height: 24px; /* Adjust to your image size */
+  margin-right: 10px; /* Adjust spacing between the image and text */
+  background-image: url('assets/starsvg.svg'); /* Replace with your image path */
+  background-size: contain; /* Ensures the image fits correctly */
+  background-repeat: no-repeat;
+  vertical-align: middle;
+}
+
+/* Prevent Custom Bullet Points in Navbar and Sidebar */
+.sidebar ul,
+.sidebar ol,
+.nav-box ul,
+.nav-box ol,
+.menu ul,
+.menu ol {
+  list-style-type: none; /* No default bullet points */
+}
+
+.sidebar ul li::before,
+.sidebar ol li::before,
+.nav-box ul li::before,
+.nav-box ol li::before,
+.menu ul li::before,
+.menu ol li::before {
+  content: none; /* Remove any custom bullet points in nav or sidebar */
+}
+
+
 .container {
   display: flex;
   flex: 1 0 auto; /* Let container grow with content */
